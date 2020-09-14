@@ -21,7 +21,6 @@ while(condition):
 
     if(yourNum == rightNum):
         print("Excellent! The game will be terminated.")
-        # condition = False
         break
 
     else:

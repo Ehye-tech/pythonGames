@@ -31,11 +31,12 @@ def play_rps():
             print("You just tie the game!")
 
         else:
-            # if the player's winner
+            # if the player's a winner
             if (yourRPS.lower() == "scissors" and rr == "paper") or (
                     yourRPS.lower() == "rock" and rr == "scissors") or (
                     yourRPS.lower() == "paper" and rr == "rock"):
                 play_again("won")
+            # if the player's a loser
             elif (yourRPS.lower() == "paper" and rr == "scissors") or (
                     yourRPS.lower() == "scissors" and rr == "rock") or (
                     yourRPS.lower() == "rock" and rr == "paper"):

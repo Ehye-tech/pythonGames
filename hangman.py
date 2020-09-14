@@ -7,7 +7,7 @@ def Convert(string):
     list1[:0] = string
     return list1
 
-# while(True):
+
 yourRole = input("Would you want to be a solver or a puzzle giver? [s/p] ")
 if yourRole.lower() == 's':
 
