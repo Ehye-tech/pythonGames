@@ -14,6 +14,7 @@ else:
 
 rightNum = random.randrange(start,end,1)
 print(start," - ",end, " is your range to guess.")
+
 while(condition):
 
     yourNum = input("Enter your guess number : ")

@@ -2,7 +2,7 @@ import random
 
 hangman = 5
 
-def Convert(string):
+def convert(string):
     list1=[]
     list1[:0] = string
     return list1
@@ -14,7 +14,7 @@ if yourRole.lower() == 's':
     words = ['rainbow', 'computer', 'science', 'programming',
              'python', 'mathematics', 'player', 'condition',
              'reverse', 'water', 'board', 'geeks']
-    answer = Convert(random.choice(words))
+    answer = convert(random.choice(words))
     alphabets = []
     myAnswer = []
     length = len(answer)
