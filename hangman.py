@@ -28,13 +28,16 @@ if yourRole.lower() == 's':
 
         guess = input("Please enter your alphabet: ")
 
-        if guess.upper().lower() in alphabets:
-
+        if guess.lower() in alphabets:
             print("You have already tried ",guess.upper()," alphabet!")
+        elif len(guess) >= 2:
+            print("You are allowed to put only 1 alphabet at once.")
+        elif guess.isdigit():
 
+            print("You are allowed to put only alphabet, but no number.")
         else:
 
-            if guess.upper().lower() in answer:
+            if guess.lower() in answer:
                 print(guess, " was the right one!")
                 myAnswer.append(guess)
 
@@ -52,7 +55,7 @@ if yourRole.lower() == 's':
         alphabets.append(guess)
         strAnswer = ''.join(map(str, answer))
 
-    if hangman == 0 : print("You just lost. The answer was",str(strAnswer), ".")
+    if hangman == 0 : print("You just lost. The answer was '",str(strAnswer), "'.")
 
 elif yourRole.lower() == 'p':
 
@@ -69,7 +72,7 @@ elif yourRole.lower() == 'p':
         computerAnswerKey = ''.join(random.choice(alphabets) for i in range(1))
         alphabets.remove(computerAnswerKey)
 
-        if computerAnswerKey.upper().lower() in answer:
+        if computerAnswerKey.lower() in answer:
             print("This alphabet is correct: ", computerAnswerKey)
             computerAnswer.append(computerAnswerKey)
             if computerAnswer == answer.upper():
