@@ -1,23 +1,26 @@
 import random
+import csv
+import re
 
 hangman = 5
-
-def convert(string):
-    list1=[]
-    list1[:0] = string
-    return list1
-
 
 yourRole = input("Would you want to be a solver or a puzzle giver? [s/p] ")
 if yourRole.lower() == 's':
 
-    words = ['rainbow', 'computer', 'science', 'programming',
-             'python', 'mathematics', 'player', 'condition',
-             'reverse', 'water', 'board', 'geeks']
-    answer = convert(random.choice(words))
+    words = []
+    with open('test.csv', newline='') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            strRow = ''.join(map(str, row))
+            regex = '[a-zA-Z]+'
+            word = re.findall(regex, strRow)
+            words.append(word)
+    f.close()
+
+    answer = str(random.choice(words))
     alphabets = []
     myAnswer = []
-    length = len(answer)
+    length = len(answer)-4
     print("This is ", length, " alphabet word. Good luck to guess.")
 
     while hangman > 0:
@@ -33,10 +36,8 @@ if yourRole.lower() == 's':
         elif len(guess) >= 2:
             print("You are allowed to put only 1 alphabet at once.")
         elif guess.isdigit():
-
             print("You are allowed to put only alphabet, but no number.")
         else:
-
             if guess.lower() in answer:
                 print(guess, " was the right one!")
                 myAnswer.append(guess)
@@ -55,7 +56,7 @@ if yourRole.lower() == 's':
         alphabets.append(guess)
         strAnswer = ''.join(map(str, answer))
 
-    if hangman == 0 : print("You just lost. The answer was '",str(strAnswer), "'.")
+    if hangman == 0 : print("You just lost. The answer was ",str(strAnswer), ".")
 
 elif yourRole.lower() == 'p':
 
