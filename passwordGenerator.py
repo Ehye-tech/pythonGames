@@ -12,7 +12,7 @@ def passwordGenerator():
     else:
         alphanumeric = input("Do you want alphanumeric password? [y/n] ")
         if alphanumeric == 'y':
-            specialSymbols = input("Do you want special symbols password? [y/n] ")
+            specialSymbols = input("Do you want special symbols in the password? [y/n] ")
             if specialSymbols == 'y':
                 ranSpecialAlphaNum(length)
             else:

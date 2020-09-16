@@ -14,13 +14,16 @@ if yourRole.lower() == 's':
             strRow = ''.join(map(str, row))
             regex = '[a-zA-Z]+'
             word = re.findall(regex, strRow)
+            word = str(word).strip("[\'").strip("\']")
             words.append(word)
+            # print(word)
     f.close()
 
     answer = str(random.choice(words))
+    # answer = re.find('[^?$.!; []][a-zA-Z]',words)
     alphabets = []
     myAnswer = []
-    length = len(answer)-4
+    length = len(answer)
     print("This is ", length, " alphabet word. Good luck to guess.")
 
     while hangman > 0:
@@ -35,22 +38,19 @@ if yourRole.lower() == 's':
             print("You have already tried ",guess.upper()," alphabet!")
         elif len(guess) >= 2:
             print("You are allowed to put only 1 alphabet at once.")
+                        # check the answer for test the code
+        elif guess == str(0) or guess == str(1):
+            print(answer, " is the answer. You lose!")
+                # break
+            print("my answer: ",set(myAnswer)," answer: ",set(answer))
         elif guess.isdigit():
             print("You are allowed to put only alphabet, but no number.")
+        elif guess.lower() in answer:
+            print(guess, " was the right one!")
+            myAnswer.append(guess)
         else:
-            if guess.lower() in answer:
-                print(guess, " was the right one!")
-                myAnswer.append(guess)
-
-            # # check the answer for test the code
-            # elif guess == str(0) or guess == str(1):
-            #     print(answer, " is the answer. You lose!")
-            #     # break
-            #     print("my answer: ",set(myAnswer)," answer: ",set(answer))
-
-            else:
-                hangman -= 1
-                if hangman > 0: print("Try again.")
+            hangman -= 1
+            if hangman > 0: print("Try again.")
 
 
         alphabets.append(guess)

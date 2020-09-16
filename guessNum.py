@@ -3,7 +3,7 @@ import sys
 
 yn = input("Let's start guessing number game! [y/n] ")
 
-if 'y' == yn.upper().lower():
+if 'y' == yn.lower():
     condition = True
     start = int(sys.argv[1])
     end = int(sys.argv[2])
