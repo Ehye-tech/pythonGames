@@ -22,7 +22,7 @@ class Hangman:
         f.close()
         answer = str(random.choice(words))
         lenAnswer = len(answer)
-        return words, answer, lenAnswer
+        return answer, lenAnswer
 
     def wonLostPlayAgain (self,guess,answer):
         if set(answer) == set(self.myAnswer):
@@ -39,7 +39,7 @@ class Hangman:
             return self.hangman
 
     def playS (self):
-        words, answer, lenAnswer = self.csvToList()
+        answer, lenAnswer = self.csvToList()
         print("This is ", lenAnswer, " alphabet word. Good luck to guess.")
         while self.hangman > 0:
             guess = input("Please enter your alphabet: ")
