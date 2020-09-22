@@ -17,8 +17,8 @@ class Hangman:
                 strRow = ''.join(map(str, row))
                 regex = '[a-zA-Z]+'
                 word = re.findall(regex, strRow)
-                word = str(word).strip("[\'").strip("\']")
-                words.append(word)
+                # word = str(word).strip("[\'").strip("\']") when you use append()
+                words.extend(word)
         f.close()
         answer = str(random.choice(words))
         lenAnswer = len(answer)
