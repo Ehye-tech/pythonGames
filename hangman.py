@@ -9,9 +9,9 @@ class Hangman:
         self.myAnswer = []
         self.alphabets = []
 
-    def csvToList(self):
+    def csvToList(self,file):
         words = []
-        with open('test.csv', newline='') as f:
+        with open(file, newline='') as f:
             reader = csv.reader(f)
             for row in reader:
                 strRow = ''.join(map(str, row))
@@ -39,7 +39,7 @@ class Hangman:
             return self.hangman
 
     def playS (self):
-        answer, lenAnswer = self.csvToList()
+        answer, lenAnswer = self.csvToList('test.csv')
         print("This is ", lenAnswer, " alphabet word. Good luck to guess.")
         while self.hangman > 0:
             guess = input("Please enter your alphabet: ")
